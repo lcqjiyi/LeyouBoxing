@@ -1,0 +1,55 @@
+﻿@model LeyouBoxing.Model.OrderBoxing
+
+@{
+    ViewData["Title"] = "Index";
+    int Total = 0;
+}
+
+@foreach (int box in Model.OrderBoxingItems.GroupBy(o=>o.BoxNumber).OrderBy(o=>o.Key).Select(o=>o.Key))
+{   Total = 0;
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="8" style="text-align:center;font-size:20px">装箱单</td>
+        </tr>
+        <tr>
+            <td colspan="8">送货单位：中山坚成制衣厂有限公司(供货商编号：10032)</td>
+        </tr>
+        <tr>
+            <td colspan="8">箱号：@box  总箱数： @Model.TotalBox</td>
+        </tr>
+        <tr>
+            <td>乐友PO</td>
+            <td>启迪PO</td>
+            <td>门店库房</td>
+            <td>SKU</td>
+            <td>款号</td>
+            <td>尺码</td>
+            <td>品名</td>
+            <td>数量</td>
+        </tr>
+        @foreach (var item in Model.OrderBoxingItems.Where(o => o.BoxNumber == box).OrderBy(o => o.Style).ThenBy(o => o.Color).ThenBy(o => o.Size))
+        {
+            <tr>
+                <td>@Model.LeyouNo</td>
+                <td>@Model.QidiNo</td>
+                <td>@Model.ShopName</td>
+                <td>@item.SKU</td>
+                <td>@item.Style</td>
+                <td>@item.Size</td>
+                <td>@item.GoodName</td>
+                <td>@item.ShipQty</td>
+                @{ Total += item.ShipQty; }
+            </tr>
+         }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>合计</td>
+            <td>@Total</td>
+        </tr>
+    </table>
+}

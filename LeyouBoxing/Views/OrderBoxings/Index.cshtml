@@ -1,0 +1,131 @@
+﻿@model IEnumerable<LeyouBoxing.Model.OrderBoxing>
+@using LeyouBoxing.ViewModels
+
+@{
+    ViewData["Title"] = "Index";
+
+    var styleList = ViewData["styleList"] as List<string>;
+    var BatchBoxingItem = ViewData["BatchBoxingItem"] as List<BatchBoxingItemViewModel>;
+}
+
+<div class="panel panel-default" style="margin-top:10px">
+    <div class="panel-heading"><div class="panel-title">批量装箱</div></div>
+   
+    <div class="panel-body">
+        <form asp-action="BatchBoxing" method="post">
+            <input type="hidden" name="orderId" value="@ViewData["orderId"]"/>
+            @foreach (var style in styleList)
+            {
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label class="control-label">款式：</label>
+                        <input type="text" name="style" value="@style" class="form-control" readonly="readonly">
+                        <label class="control-label">箱号：</label>
+                        <input type="number" name="boxNumber" class="form-control" value="0" min="0">
+                    </div>
+                </div>
+            }
+            <div class="form-inline" style="margin-top:10px">
+                <div class="form-group">
+                    <label class="control-label">装箱条件  总件数：</label>
+                    <input type="number" name="TotalMini" value="0" class="form-control" min="0">
+                    <label class="control-label">-</label>
+                    <input type="number" name="TotalMax" value="0" class="form-control" min="0">
+                    <input type="submit" name="submit" class="form-control" value="装箱">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default" style="margin-top:10px">
+    <div class="panel-heading"><div class="panel-title">批量装箱2</div></div>
+    <div class="panel-body">
+        <form asp-action="BatchBoxingBySize">
+            <input type="hidden" name="orderId" value="@ViewData["orderId"]" />
+            <div class="form-group input-group-sm">
+                @foreach (var item in BatchBoxingItem)
+                {
+                    <div class="form-inline">
+                        <label class="control-label">款式：</label>
+                        <input type="text" name="style" value="@item.Style" class="form-control" readonly="readonly">
+                        <label class="control-label">颜色：</label>
+                        <input type="text" name="Color" value="@item.Color" class="form-control" readonly="readonly">
+                        <label class="control-label">码数：</label>
+                        <input type="text" name="Size" value="@item.Size" class="form-control" readonly="readonly">
+                        <label class="control-label">装箱数: </label>
+                        <input type="number" name="MaxQty" value="0" class="form-control" min="0">
+                    </div>
+                }
+                <div class="form-inline" style="margin-top:10px">
+                    <label class="control-label">装箱条件  总件数：</label>
+                    <input type="number" name="TotalMini" value="0" class="form-control" min="0">
+                    <label class="control-label">-</label>
+                    <input type="number" name="TotalMax" value="0" class="form-control" min="0">
+                    <input type="submit" name="submit" class="form-control" value="装箱">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<a  asp-action="OutputExcel" asp-route-id="@ViewData["orderId"]" class="btn btn-default">下载装箱单</a>
+<hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeyouNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QidiNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShopName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalQty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalBox)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hashcode)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeyouNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QidiNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShopName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalQty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalBox)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hashcode)
+                    </td>
+                    <td>
+                        <a asp-action="Index" asp-controller="OrderBoxingItems" asp-route-id="@item.Id">装箱单</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

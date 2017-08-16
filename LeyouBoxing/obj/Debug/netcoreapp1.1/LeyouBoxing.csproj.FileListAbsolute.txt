@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\bin\Debug\netcoreapp1.1\LeyouBoxing.deps.json
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\bin\Debug\netcoreapp1.1\LeyouBoxing.runtimeconfig.json
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\bin\Debug\netcoreapp1.1\LeyouBoxing.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\bin\Debug\netcoreapp1.1\LeyouBoxing.dll
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\obj\Debug\netcoreapp1.1\LeyouBoxing.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\obj\Debug\netcoreapp1.1\LeyouBoxing.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\bin\Debug\netcoreapp1.1\LeyouBoxing.pdb
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\obj\Debug\netcoreapp1.1\LeyouBoxing.dll
+C:\Users\Administrator\Desktop\web\LeyouBoxing\LeyouBoxing\obj\Debug\netcoreapp1.1\LeyouBoxing.pdb

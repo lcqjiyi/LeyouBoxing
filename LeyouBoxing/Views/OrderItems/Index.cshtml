@@ -1,0 +1,127 @@
+@model IEnumerable<LeyouBoxing.Model.OrderItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Suppliercode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quarterly)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApprovalNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeyouNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QidiNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShopName)
+                </th>
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.SKU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Style)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GoodName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PoQty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.POprice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Money)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suppliercode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quarterly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeyouNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QidiNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.SKU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Style)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Money)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model LeyouBoxing.ViewModels.InputOrderViewModel
+
+@{
+    ViewData["Title"] = "InputExcel";
+}
+
+<h2>InputExcel</h2>
+
+<form asp-action="InputExcel" enctype="multipart/form-data" method="post">
+    <div class="form-horizontal">
+        <h4>导入Excel文件</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="JcNo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="JcNo" class="form-control" />
+                <span asp-validation-for="JcNo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExcelFile" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input type="file" asp-for="ExcelFile" class="form-control"/>
+                <span asp-validation-for="ExcelFile" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="上传" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

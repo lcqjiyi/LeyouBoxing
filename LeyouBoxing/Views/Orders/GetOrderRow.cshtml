@@ -1,0 +1,121 @@
+@model IEnumerable<LeyouBoxing.Model.OrderRow>
+@using LeyouBoxing.Model;
+@{
+    ViewData["Title"] = "GenerateOrderRow";
+
+    OrderSizeGroup orderSizeGroup = ViewData["OrderSizeGroup"] as OrderSizeGroup;
+}
+
+<h2>GenerateOrderRow</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeyouNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QidiNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShopName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sylte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Color)
+                </th>
+                <th>
+                    @orderSizeGroup.Size1
+                </th>
+                <th>
+                    @orderSizeGroup.Size2
+                </th>
+                <th>
+                    @orderSizeGroup.Size3
+                </th>
+                <th>
+                    @orderSizeGroup.Size4
+                </th>
+                <th>
+                    @orderSizeGroup.Size5
+                </th>
+                <th>
+                    @orderSizeGroup.Size6
+                </th>
+                <th>
+                    @orderSizeGroup.Size7
+                </th>
+                <th>
+                    @orderSizeGroup.Size8
+                </th>
+                <th>
+                    @orderSizeGroup.Size9
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeyouNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QidiNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sylte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty9)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
